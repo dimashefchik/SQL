@@ -130,7 +130,6 @@ left join employee_salary on roles_employee.employee_id = employee_salary.employ
 left join salary on employee_salary.salary_id = salary.id 
 where role_name like '%Phyton%'
 order by 1;
-
 --Вариант 2 без имен:
   select roles_employee.id,  role_name,  salary.monthly_salary  from roles_employee
 join employees on roles_employee.employee_id = employees.id
@@ -138,7 +137,7 @@ join roles on roles_employee.role_id = roles.id
 left join employee_salary on roles_employee.employee_id = employee_salary.employee_id
 left join salary on employee_salary.salary_id = salary.id 
 where role_name like '%Phyton%'
-order by 1;
+order by 1
 
 -- 17. Вывести имена и зарплаты Junior Python разработчиков
   select roles_employee.id, employee_name, role_name,  salary.monthly_salary  from roles_employee
@@ -157,7 +156,6 @@ left join employee_salary on roles_employee.employee_id = employee_salary.employ
 left join salary on employee_salary.salary_id = salary.id 
 where role_name like '%Middle JavaS%'
 order by 1;
-
 -- 19. Вывести имена и зарплаты Senior Java разработчиков
   select roles_employee.id, employee_name, role_name,  salary.monthly_salary  from roles_employee
 join employees on roles_employee.employee_id = employees.id
@@ -175,7 +173,6 @@ left join employee_salary on roles_employee.employee_id = employee_salary.employ
 left join salary on employee_salary.salary_id = salary.id 
 where role_name like '%Jun%QA%'
 order by 1;
-
 --вариант 2 (без имени)
   select roles_employee.id,  role_name,  salary.monthly_salary  from roles_employee
 join employees on roles_employee.employee_id = employees.id
@@ -193,7 +190,6 @@ join salary on salary_id = salary.id
 join roles_employee on employees.id = roles_employee.employee_id
 join roles on roles_employee.role_id = roles.id
 where role_name like '%Junior%';
-
 --выводим среднее значение
   select round(avg(salary.monthly_salary), 2) from employees
 join employee_salary on employees.id = employee_salary.employee_id
@@ -205,16 +201,14 @@ where role_name like '%Junior%';
 -- 22. Вывести сумму зарплат JS разработчиков
 
 --выводим все
-  select salary.monthly_salary from employees
+select salary.monthly_salary from employees
 join employee_salary on employees.id = employee_salary.employee_id
 join salary on salary_id = salary.id
 join roles_employee on employees.id = roles_employee.employee_id
 join roles on roles_employee.role_id = roles.id
 where role_name like '%JavaS%';
-
 --выводим сумму
-
-  select sum(salary.monthly_salary) from employees
+select sum(salary.monthly_salary) from employees
 join employee_salary on employees.id = employee_salary.employee_id
 join salary on salary_id = salary.id
 join roles_employee on employees.id = roles_employee.employee_id
@@ -223,15 +217,14 @@ where role_name like '%JavaS%';
 
 -- 23. Вывести минимальную ЗП QA инженеров
 --выводим все зп
- select salary.monthly_salary from employees
+select salary.monthly_salary from employees
 join employee_salary on employees.id = employee_salary.employee_id
 join salary on salary_id = salary.id
 join roles_employee on employees.id = roles_employee.employee_id
 join roles on roles_employee.role_id = roles.id
 where role_name like '%QA%';
-
 -- выводим минимальную 
- select min(salary.monthly_salary) from employees
+select min(salary.monthly_salary) from employees
 join employee_salary on employees.id = employee_salary.employee_id
 join salary on salary_id = salary.id
 join roles_employee on employees.id = roles_employee.employee_id
@@ -239,7 +232,7 @@ join roles on roles_employee.role_id = roles.id
 where role_name like '%QA%';
 
 -- 24. Вывести максимальную ЗП QA инженеров
- select max(salary.monthly_salary) from employees
+select max(salary.monthly_salary) from employees
 join employee_salary on employees.id = employee_salary.employee_id
 join salary on salary_id = salary.id
 join roles_employee on employees.id = roles_employee.employee_id
@@ -263,7 +256,7 @@ join roles on roles_employee.role_id = roles.id
 where role_name like '%Middle%';
 
 -- 27. Вывести количество разработчиков
-  select count(salary.monthly_salary) from employees
+select count(salary.monthly_salary) from employees
 join employee_salary on employees.id = employee_salary.employee_id
 join salary on salary_id = salary.id
 join roles_employee on employees.id = roles_employee.employee_id
